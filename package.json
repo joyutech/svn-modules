@@ -1,0 +1,41 @@
+{
+  "name": "svn-modules",
+  "version": "0.1.0",
+  "description": "Allows node module dependencies to be installed from SVN repositories",
+  "author": "Erik Rogers <erik.rogers@live.com>",
+  "homepage": "https://github.com/ewrogers/svn-modules#readme",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ewrogers/svn-modules.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ewrogers/svn-modules/issues"
+  },
+  "keywords": [
+    "svn",
+    "subversion",
+    "npm",
+    "modules",
+    "packages",
+    "dependencies",
+    "repositories"
+  ],
+  "engines": {
+    "node": ">=4.0.0",
+    "npm": ">=3.0.0"
+  },
+  "bin": {
+    "svn-modules": "bin/index.js",
+    "svn-modules-install": "bin/install.js",
+    "svn-modules-uninstall": "bin/uninstall.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "chalk": "^1.1.3",
+    "commander": "^2.9.0",
+    "rimraf": "^2.5.2"
+  }
+}
