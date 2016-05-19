@@ -3,8 +3,10 @@
 
 const program = require('commander')
 
+const VERSION_NUMBER = '0.1.3'
+
 program
-  .version('0.1.2')
+  .version(VERSION_NUMBER)
   .command('install [names...]', 'install one or more SVN dependencies')
   .command('uninstall [names...]', 'uninstall one or more SVN dependencies')
   .parse(process.argv)

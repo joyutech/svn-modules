@@ -15,7 +15,6 @@ const searchUpwards = require('../lib/search-upwards')
 let packageNames = []
 
 program
-  .version('0.1.2')
   .arguments('[names...]')
   .action(names => packageNames = names.slice())
   .parse(process.argv)
