@@ -23,7 +23,7 @@ Example:
 
 ### Installing SVN Dependencies
 
-- #### Automatic (via npm scripts)
+- #### Automatic Installation (via npm scripts)
 It is recommended to add the following npm scripts to your `package.json` file.
 
         "scripts": {
@@ -31,7 +31,7 @@ It is recommended to add the following npm scripts to your `package.json` file.
           "uninstall": "svn-modules uninstall"
         }
 
-  This will cause npm to automatically install your SVN dependencies when before package is installed, as well as uninstalling them before your package is uninstalled.
+  This will cause npm to automatically install your SVN dependencies when before package is installed, as well as uninstalling them before your package is uninstalled. You can simply run `npm install` and your SVN dependencies will also be installed.
 
 - #### Manual Installation
 Alternatively, you can install your SVN dependencies manually via `svn-modules install`. You can uninstall them via `svn-modules uninstall`.
@@ -43,6 +43,9 @@ Installing SVN dependencies will create a `svn_modules` in your project folder. 
 
 ### Will my SVN dependencies be under source control upon installation?
 No. The `svn export` command is used to copy the remote repo to your local computer. Unlike the `svn checkout` command, `svn export` does not create SVN source control folders (`.svn`). This acts as a simple copy operation rather than a full checkout.
+
+### Will my SVN dependencies integrate with `node_modules` properly?
+Yes. They will be installed (along with their own dependencies) insides your project's `node_modules` folder as you would expect any other node package. This follows npm 3.x convention.
 
 ### TODO Items
   * Add revision support (`-r --revision <rev>` option) to install
