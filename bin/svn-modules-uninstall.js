@@ -40,24 +40,24 @@ program
   }
 
   // If there are no SVN dependencies, warn and exit
-  let svnDependecies = packageInfo.svnDependecies || {}
-  if (!Object.keys(svnDependecies).length) {
+  let svnDependencies = packageInfo.svnDependencies || {}
+  if (!Object.keys(svnDependencies).length) {
     logger.warn('Package.json does not contain SVN dependencies')
     process.exit(0)
   }
 
   // Validate named packages, warn if they do not exist in the SVN dependencies
   for (let packageName of packageNames) {
-    if (!svnDependecies.hasOwnProperty(packageName))
+    if (!svnDependencies.hasOwnProperty(packageName))
       logger.warn(`Package.json does not contain SVN dependency '${packageName}'`)
   }
 
   // If individual package names were provided, filter out any non-matches
   if (packageNames.length) {
-    svnDependecies = Object.keys(svnDependecies)
+    svnDependencies = Object.keys(svnDependencies)
       .filter(key => packageNames.indexOf(key) !== -1)
       .reduce((deps, key) => {
-        deps[key] = svnDependecies[key]
+        deps[key] = svnDependencies[key]
         return deps
       }, {})
   }
@@ -67,7 +67,7 @@ program
   let svnModulesPath = path.join(projectRoot, 'svn_modules')
 
   // Uninstall the packages one-by-one
-  for (let moduleName of Object.keys(svnDependecies)) {
+  for (let moduleName of Object.keys(svnDependencies)) {
     let modulePath = path.join(svnModulesPath, moduleName)
 
     // Uninstall the package (and its dependencies) using NPM
