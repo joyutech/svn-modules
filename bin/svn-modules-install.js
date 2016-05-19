@@ -3,6 +3,7 @@
 
 const fs = require('fs')
 const path = require('path')
+const execSync = require('child_process').execSync
 const spawnSync = require('child_process').spawnSync
 
 const chalk = require('chalk')
@@ -96,29 +97,34 @@ for (let moduleName of Object.keys(svnDependencies)) {
     continue
   }
 
-  // Install the package (and its dependencies) using NPM
-  logger.info(`Installing ${moduleName}...`)
-  let npmResult = spawnSync('npm', ['install', modulePath], {
-    cwd: projectRoot,
-    env: process.env,
-    stdio: 'inherit'
-  })
+  try {
+    // Install the package (and its dependencies) using NPM
+    logger.info(`Installing ${moduleName}...`)
+    execSync(`npm install ${modulePath}`, {
+      cwd: projectRoot,
+      env: process.env,
+      stdio: 'inherit'
+    })
 
-  // If a NPM error occurred, report the error and skip this package
-  if (npmResult.status !== 0) {
-    logger.error(`Unable to install ${moduleName}`)
-    logger.error(npmResult.stderr)
-    errorCount += 1
-    continue
+    successCount += 1
+    logger.success(`Installed ${moduleName} successfully`)
+
+  } catch (npmResult) {
+    // If a NPM error occurred, report the error and skip this package
+    if (npmResult.status !== 0) {
+      logger.error(`Unable to install ${moduleName}`)
+      errorCount += 1
+      continue
+    }
   }
-
-  successCount += 1
-  logger.success(`Installed ${moduleName} successfully`)
 }
 
 // Report summary of installation
-if (errorCount == 0 && successCount > 0) {
+if (errorCount === 0 && successCount > 0) {
   logger.success('All SVN dependencies were installed successfully')
 } else if (errorCount > 0) {
   logger.warn(`One or more SVN dependencies failed to install`)
+  process.exit(1)
 }
+
+process.exit(0)
