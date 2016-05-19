@@ -1,6 +1,6 @@
 {
   "name": "svn-modules",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Allows node module dependencies to be installed from SVN repositories",
   "author": "Erik Rogers <erik.rogers@live.com>",
   "homepage": "https://github.com/ewrogers/svn-modules#readme",
