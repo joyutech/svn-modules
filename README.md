@@ -9,7 +9,12 @@ I am open to suggestions, improvements, and pull requests for those interested. 
   - __npm__ >= 3.0.0
 
 ### Installation
-    npm install -g svn-modules
+
+ - #### Globally
+        npm install svn-modules --global
+
+ - #### Locally
+        npm install svn-modules --save-dev
 
 ### Adding SVN Dependencies
 Append an object named `svnDependencies` to your `package.json` file. Each property of the object will reference a node package dependency stored in a SVN repository.
