@@ -26,9 +26,9 @@
     "npm": ">=3.0.0"
   },
   "bin": {
-    "svn-modules": "bin/index.js",
-    "svn-modules-install": "bin/install.js",
-    "svn-modules-uninstall": "bin/uninstall.js"
+    "svn-modules": "bin/svn-modules.js",
+    "svn-modules-install": "bin/svn-modules-install.js",
+    "svn-modules-uninstall": "bin/svn-modules-uninstall.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
