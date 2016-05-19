@@ -36,7 +36,7 @@ It is recommended to add the following npm scripts to your `package.json` file.
           "uninstall": "svn-modules uninstall"
         }
 
-  This will cause npm to automatically install your SVN dependencies when before package is installed, as well as uninstalling them before your package is uninstalled. You can simply run `npm install` and your SVN dependencies will also be installed.
+  This will cause npm to automatically install your SVN dependencies before your package is installed, as well as uninstalling them before your package is uninstalled. You can simply run `npm install` and your SVN dependencies will also be installed.
 
 - #### Manual Installation
 Alternatively, you can install your SVN dependencies manually via `svn-modules install`. You can uninstall them via `svn-modules uninstall`.

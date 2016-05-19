@@ -40,7 +40,7 @@ try {
 }
 
 // If there are no SVN dependencies, warn and exit
-let svnDependencies = packageInfo.svnDepedencies || {}
+let svnDependencies = packageInfo.svnDependencies || {}
 if (!Object.keys(svnDependencies).length) {
   logger.warn('Package.json does not contain SVN dependencies')
   process.exit(0)
