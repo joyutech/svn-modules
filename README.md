@@ -4,9 +4,9 @@
 I am open to suggestions, improvements, and pull requests for those interested. This is currently very much a minimally viable (yet functional) approach.
 
 ### Requirements
-  * __svn__ command-line tools
-  * __node__ >= 4.0.0
-  * __npm__ >= 3.0.0
+  - __svn__ command-line tools
+  - __node__ >= 4.0.0
+  - __npm__ >= 3.0.0
 
 ### Installation
     npm install -g svn-modules
@@ -23,17 +23,17 @@ Example:
 
 ### Installing SVN Dependencies
 
-* #### Automatic (via npm scripts)
+- #### Automatic (via npm scripts)
 It is recommended to add the following npm scripts to your `package.json` file.
-  
-    "scripts": {
-      "install": "svn-modules install",
-      "uninstall": "svn-modules uninstall"
-    }
 
-This will cause npm to automatically install your SVN dependencies when before package is installed, as well as uninstalling them before your package is uninstalled.
+        "scripts": {
+          "install": "svn-modules install",
+          "uninstall": "svn-modules uninstall"
+        }
 
-* #### Manual Installation
+  This will cause npm to automatically install your SVN dependencies when before package is installed, as well as uninstalling them before your package is uninstalled.
+
+- #### Manual Installation
 Alternatively, you can install your SVN dependencies manually via `svn-modules install`. You can uninstall them via `svn-modules uninstall`.
 
   **NOTE:** Similar to npm, you should be inside your project folder when executing these commands.
