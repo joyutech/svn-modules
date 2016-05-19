@@ -44,7 +44,7 @@ Alternatively, you can install your SVN dependencies manually via `svn-modules i
   **NOTE:** Similar to npm, you should be inside your project folder when executing these commands.
 
 ### What are these `svn_modules`? Do I need them?
-Installing SVN dependencies will create a `svn_modules` in your project folder. This is a temporary local cache and should be ignored by VCS. You can safely delete it, as it will not effect your installed `node_modules`. Future versions of this package will likely automatically delete this folder after installation.
+Installing SVN dependencies will temporarily create a `svn_modules` local cache in your project folder. This folder is deleted upon completing an install or uninstall operation. If it is not deleted automatically, you can safely delete it manually. It is recommended to add this folder to your source control's ignore list (`.gitignore`) as a precaution.
 
 ### Will my SVN dependencies be under source control upon installation?
 No. The `svn export` command is used to copy the remote repo to your local computer. Unlike the `svn checkout` command, `svn export` does not create SVN source control folders (`.svn`). This acts as a simple copy operation rather than a full checkout.
@@ -57,6 +57,4 @@ Yes. They will be installed (along with their own dependencies) insides your pro
   * Add branch support (`-b --branch <name>` option) to install
   * Add tag support (`-t --tag <name>` option) to install
   * Add trunk support (`-k --trunk` option) to install
-  * Add purge/clean support (`--purge` option) to uninstall
-  * Remove `svn_modules` local cache after installation
   * Organize code (sync -> async code?)

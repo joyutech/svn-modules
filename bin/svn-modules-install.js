@@ -76,9 +76,13 @@ for (let moduleName of Object.keys(svnDependencies)) {
   if (!fs.existsSync(svnModulesPath))
     fs.mkdirSync(svnModulesPath)
 
-  // If the package already exists in the local cache, delete it first
-  if (fs.existsSync(modulePath))
-    rimraf.sync(modulePath)
+  try {
+    // If the package already exists in the local cache, delete it first
+    if (fs.existsSync(modulePath))
+      rimraf.sync(modulePath)
+  } catch (err) {
+    logger.warn(`Unable to delete ${moduleName} from local cache`)
+  }
 
   // Fetch the package from SVN to the local cache
   logger.info(`Fetching ${moduleName}...`)
@@ -117,6 +121,14 @@ for (let moduleName of Object.keys(svnDependencies)) {
       continue
     }
   }
+}
+
+// Delete local cache (svn_modules)
+try {
+  if (fs.existsSync(svnModulesPath))
+    rimraf.sync(svnModulesPath)
+} catch (err) {
+  logger.warn(`Unable to delete local cache`)
 }
 
 // Report summary of installation

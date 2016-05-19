@@ -91,11 +91,14 @@ for (let moduleName of Object.keys(svnDependencies)) {
       continue
     }
   }
-  finally {
-    // Remove the module from the local cache
-    if (fs.existsSync(modulePath))
-      rimraf.sync(modulePath)
-  }
+}
+
+// Delete local cache (svn_modules)
+try {
+  if (fs.existsSync(svnModulesPath))
+    rimraf.sync(svnModulesPath)
+} catch (err) {
+  logger.warn(`Unable to delete local cache`)
 }
 
 // Report summary of uninstall
