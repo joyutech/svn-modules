@@ -104,7 +104,7 @@ for (let moduleName of Object.keys(svnDependencies)) {
   try {
     // Install the package (and its dependencies) using NPM
     logger.info(`Installing ${moduleName}...`)
-    execSync(`npm install ${modulePath}`, {
+    execSync(`npm install "${modulePath}"`, {
       cwd: projectRoot,
       env: process.env,
       stdio: 'inherit'
