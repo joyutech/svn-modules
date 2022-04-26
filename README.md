@@ -1,4 +1,4 @@
-# svn-modules
+# @joyu/svn-modules
 > Command-line tool for installing node module dependencies from SVN repositories
 
 I am open to suggestions, improvements, and pull requests for those interested. This is currently very much a minimally viable (yet functional) approach.

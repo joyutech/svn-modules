@@ -1,16 +1,16 @@
 {
-  "name": "svn-modules",
+  "name": "@joyu/svn-modules",
   "version": "0.1.8",
   "description": "Allows node module dependencies to be installed from SVN repositories",
-  "author": "Erik Rogers <erik.rogers@live.com>",
-  "homepage": "https://github.com/ewrogers/svn-modules#readme",
+  "author": "joyu team",
+  "homepage": "https://github.com/joyutech/svn-modules#readme",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ewrogers/svn-modules.git"
+    "url": "git+https://github.com/joyutech/svn-modules.git"
   },
   "bugs": {
-    "url": "https://github.com/ewrogers/svn-modules/issues"
+    "url": "https://github.com/joyutech/svn-modules/issues"
   },
   "keywords": [
     "svn",
