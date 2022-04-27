@@ -3,7 +3,7 @@
 
 const program = require('commander')
 
-const VERSION_NUMBER = '0.1.8'
+const VERSION_NUMBER = '0.2.0'
 
 program
   .version(VERSION_NUMBER)
