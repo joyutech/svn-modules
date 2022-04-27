@@ -6,7 +6,6 @@ const path = require('path')
 const execSync = require('child_process').execSync
 const spawnSync = require('child_process').spawnSync
 
-const chalk = require('chalk')
 const program = require('commander')
 const rimraf = require('rimraf')
 
@@ -104,7 +103,7 @@ for (let moduleName of Object.keys(svnDependencies)) {
   try {
     // Install the package (and its dependencies) using NPM
     logger.info(`Installing ${moduleName}...`)
-    execSync(`npm install "${modulePath}"`, {
+    execSync(`npm install --no-save "${modulePath}"`, {
       cwd: projectRoot,
       env: process.env,
       stdio: 'inherit'

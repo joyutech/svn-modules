@@ -6,7 +6,6 @@ const path = require('path')
 const execSync = require('child_process').execSync
 const spawnSync = require('child_process').spawnSync
 
-const chalk = require('chalk')
 const program = require('commander')
 const rimraf = require('rimraf')
 
