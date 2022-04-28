@@ -3,7 +3,7 @@
 
 const program = require('commander')
 
-const VERSION_NUMBER = '0.2.0'
+const VERSION_NUMBER = require('../package.json').version
 
 program
   .version(VERSION_NUMBER)
