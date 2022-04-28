@@ -85,7 +85,13 @@ inquirer
 
     // Install the packages one-by-one
     for (let moduleName of Object.keys(svnDependencies)) {
-      let repositoryUrl = svnDependencies[moduleName]
+      let item = svnDependencies[moduleName] || ''
+      item = item.split('#')
+      let repositoryUrl = item[0], revision = item[1]
+      if(!repositoryUrl) {
+        logger.error(`Unable to fetch ${moduleName}, no repositoryUrl`)
+        continue;
+      }
       let modulePath = path.join(svnModulesPath, moduleName)
 
       // Ensure the SVN modules folder exists
@@ -102,7 +108,16 @@ inquirer
 
       // Fetch the package from SVN to the local cache
       logger.info(`Fetching ${moduleName}...`)
-      let svnResult = spawnSync('svn', ['export', '--username', `${username}`, '--password', `${password}`, '--force', repositoryUrl, moduleName], {
+      let svnResult = spawnSync('svn', [ 'export',
+        '--revision', revision ? revision : 'HEAD', // 如果指定，导出内容即为该版本，否则就是 HEAD 版本
+        '--username', `${username}`, // 指定用户名称
+        '--password', `${password}`, // 指定密码
+        '--no-auth-cache',           // 不要缓存用户认证令牌
+        '--non-interactive',         // 不要交互提示
+        '--force',                   // 强制操作运行
+        repositoryUrl,
+        moduleName
+      ], {
         cwd: svnModulesPath,
         env: process.env,
         stdio: 'pipe',
